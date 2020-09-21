@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "authenticatorapp-901fa": {
+      "hosting": {
+        "app": [
+          "authenticatorapp-901fa"
+        ]
+      }
+    }
+  }
+}

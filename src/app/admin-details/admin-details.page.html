@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Información del Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-list lines="full">
+    <br>
+    <ion-item *ngIf="user">
+      <ion-icon ></ion-icon>
+      <ion-input required type="text" placeholder="Nombre" [(ngModel)]="user.name"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item *ngIf="user">
+      <ion-icon></ion-icon>
+      <ion-input required type="text" placeholder="Apellido" [(ngModel)]="user.lastname"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item *ngIf="user">
+      <ion-icon></ion-icon>
+      <ion-input required type="text" placeholder="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item *ngIf="user">
+      <ion-icon></ion-icon>
+      <ion-input required type="string" placeholder="uid-firebase" [(ngModel)]="user.uid"></ion-input>
+    </ion-item>
+    
+    <br>
+    
+    <ion-item *ngIf="user">
+      <ion-icon></ion-icon>
+      <ion-input required type="text" placeholder="phone" [(ngModel)]="user.phone"></ion-input>
+    </ion-item>
+    <br>
+  </ion-list>
+  <ion-button expand="full" (click)="saveTodo()">Guardar</ion-button>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="danger">
+      <ion-fab-button color="danger" (click)="onRemoveTodo(user.uid)" routerLink="/admin" routerDirection="forward">
+          <ion-icon name="remove-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+
+</ion-content>

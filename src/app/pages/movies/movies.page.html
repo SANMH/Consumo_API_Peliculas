@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons  slot="primary">
+      <ion-button (click)="onLogout()" color="danger">
+        <ion-icon name="close-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>API de Películas o series</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-searchbar no-shadow placeholder="buscar" type="text" [(ngModel)]="searchTherm" (ionChange)="searchChanged($event)"></ion-searchbar>
+  <ion-img src="./assets/fondo.jpg" ></ion-img>
+  <ion-list>
+<ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'movies', item.imdbID]">
+  <ion-avatar slot="start">
+    <img [src]="item.Poster" *ngIf="item.Poster != 'N/A'">
+  </ion-avatar>
+
+  <ion-label text-wrap>
+    <h3> {{ item.Title}} </h3>
+    {{ item.Year }} 
+  </ion-label>
+  <ion-icon slot="end" *ngIf="item.Type == 'movie'" name="videocam"></ion-icon>
+  <ion-icon slot="end" *ngIf="item.Type == 'series'" name="tv"></ion-icon>
+  <ion-icon slot="end" *ngIf="item.Type == 'game'" name="game-controller"></ion-icon>
+
+</ion-item>
+  </ion-list>
+</ion-content>

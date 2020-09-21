@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <br>
+      <ion-input color="transparent" type="text" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Contraseña</ion-label>
+      <br>
+      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+      <br>
+    </ion-item>
+    <br>
+    <br>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" (click)="onLogin()" expand="block">Iniciar Sesión</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="danger" expand="block"  routerLink="/forgot-password">Contraseña Olvidada?</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="success" expand="block" routerLink="/register">Registrarse</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  
+
+    <!-- 
+    <span class="center-span"> or </span>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" (click)="onLoginGoogle()" expand="block"
+          >Iniciar con Google
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  -->
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-button (click)="onMovie()" >
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons  slot="danger">
+      <ion-button (click)="onLogout()" color="danger">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Usuario Administrador
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ <ion-content>
+  <ion-list-header lines="full">
+    <ion-label>
+      Usuarios Registrados 
+      <br>
+    </ion-label>
+  </ion-list-header>
+  <ion-list>
+    <ng-container *ngIf="!users || users.length == 0">
+      <div *ngFor="let n of [0,1,2]" padding>
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="text-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
+    <ion-item-sliding *ngFor="let user of users">
+      <ion-item lines="inset" button [routerLink]="['/details', user.id]">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>
+          {{ user.email }}
+        </ion-label>
+        <ion-note slot="end" color="primary"></ion-note>
+      </ion-item>
+ 
+      <ion-item-options side="end">
+        <ion-item-option (click)="remove(item)" color="secondary">
+          Check
+          <ion-icon name="checkmark" slot="end"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <section>
+    <ion-button color="tertiary" (click)="onHistorial()" expand="block">Historial de busquedas</ion-button>
+  </section>
+
+
+ <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button  color="light" routerLink="/details" routerDirection="forward">
+      <ion-icon md="person-add">Añadir usuario</ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ </ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Genero: {{information?.Genre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngIf="information">
+
+  <ion-card-header>
+<ion-card-title>
+  <h3 style="text-align: center;">{{information.Title}}</h3>
+</ion-card-title>
+<ion-card-subtitle>
+  <h4 style="text-align: center;">{{information.Year}}</h4> 
+</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content text-center>
+    <img  [src]="information.Poster" class="info-img" id="imgPlacement" style="align-items: center">
+    <br>
+    <div>
+    <ion-button (click)="openWebsite()" *ngIf="information.Website && information.Website != 'N/A'">
+      Abrir Sitio Web</ion-button>
+    </div>
+    <br>
+    <ion-text color="white">
+      <p >{{information.Plot}}</p>
+    </ion-text>
+    
+    
+    <br>
+    
+    <ion-item lines="none">
+      <ion-icon name="podium" slot="start"></ion-icon>
+      <ion-label>Rating: {{information.imdbRating}}/10 </ion-label>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="videocam" slot="start"></ion-icon>
+      <ion-label text-wrap>Director: {{information.Director}} </ion-label>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="people" slot="start"></ion-icon>
+      <ion-label text-wrap>Actores Principales:<br> {{information.Actors}} </ion-label>
+    </ion-item>
+    
+   </ion-card-content>
+
+   
+
+  </ion-card>
+  
+</ion-content>
