@@ -3,6 +3,9 @@ Asignatura: topicos Especilaes
 Facultad: ESFOT
 2020-A
 
+## Video explicativo. 🚀
+* [https://www.youtube.com/watch?v=tDrmuFoHM28&t=912s](https://www.youtube.com/watch?v=tDrmuFoHM28&t=912s) - Ionic consumir API películas.
+
 ### Integrantes
 - Bryan Farinango
 - Fernando Sanmartin 
